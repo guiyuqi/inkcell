@@ -1,0 +1,38 @@
+# ---- 你的手迹：绝对不要提交（可被用来伪造签名）----
+raw/
+glyphs/
+*.docx
+!examples/**/*.docx.template
+out/
+work/
+sheets/manifest-*.json
+**/state-*.json
+
+# ---- 生成的 APK / 签名私钥 ----
+*.apk
+*.apk.idsig
+*.keystore
+*.jks
+inkcell/app/_sdk/
+inkcell/app/build/
+inkcell/app/src/assets/desk.html
+
+# ---- 字体（CJK 动辄 10~25 MB，自己放）----
+assets/fonts/*.ttf
+assets/fonts/*.otf
+assets/fonts/*.ttc
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+.venv/
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+
+# ---- demo 产物（跑一次就生成）----
+examples/demo/src_docx/
+examples/demo/glyphs/
+examples/demo/out/
+examples/demo/work/

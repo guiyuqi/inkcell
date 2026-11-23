@@ -1,0 +1,45 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inkcell"
+version = "0.1.0"
+description = "Collect your own handwriting on a phone, turn it into a bitmap font library, and fill it back into existing .docx files without touching the layout."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "guiyuqi" }]
+keywords = ["handwriting", "handwriting-font", "docx", "chinese-handwriting", "tablet", "android"]
+classifiers = [
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Topic :: Multimedia :: Graphics",
+  "Topic :: Office/Business :: Office Suites",
+]
+dependencies = [
+  "pillow>=10.1",
+  "numpy>=1.24",
+  "scipy>=1.10",
+  "python-docx>=1.1",
+]
+
+[project.optional-dependencies]
+sheets = ["img2pdf>=0.5"]          # 需要打印格子纸时才用
+dev = ["pytest>=8"]
+
+[project.urls]
+Homepage = "https://github.com/guiyuqi/inkcell"
+Issues = "https://github.com/guiyuqi/inkcell/issues"
+
+[project.scripts]
+inkcell = "inkcell.cli:main"
+
+[tool.setuptools]
+packages = [
+  "inkcell", "inkcell.collect", "inkcell.glyph",
+  "inkcell.render", "inkcell.doc", "inkcell.app",
+]
+
+[tool.setuptools.package-data]
+"inkcell.app" = ["build_apk.sh", "ensure_sdk.sh", "src/**/*", "src/*"]
